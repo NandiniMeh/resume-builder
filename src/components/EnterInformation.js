@@ -93,6 +93,8 @@ function EnterInformation() {
            onChange={handleChange}
         />
         </form>
+
+        <Button style={{"margin": "10px", "margin-left": "50%", "margin-bottom": "5%"}} variant="outlined" color="success">Resumake!</Button> 
       </div>
     )
 }
