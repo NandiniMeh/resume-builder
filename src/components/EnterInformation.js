@@ -112,6 +112,10 @@ function EnterInformation() {
         } else if (event.target.id === ('actions' + job)) {
           job = job - 1;
           temp[(job * 6) + 5] = event.target.value
+        } else if (event.target.id === ('checkbox' + job) && document.getElementById('checkbox' + job)) {
+          console.log("hello")
+          job = job - 1;
+          temp[(job * 6) + 4] = 'Present'
         }
       })
       setListJobs(temp);
@@ -167,8 +171,8 @@ function EnterInformation() {
               <TextField style={{"margin": "10px"}} id={"location" + job} label="Location" variant="outlined" onChange={handleChangeJobs} /> <br></br>
               <TextField style={{"margin": "10px"}} id={"start" + job} label="Start Date" variant="outlined" onChange={handleChangeJobs} />
               <TextField style={{"margin": "10px"}} id={"end" + job} label="End Date" variant="outlined" onChange={handleChangeJobs} />
-              <FormControlLabel style={{"margin": "10px"}} control={<Checkbox />} label="I currently work here" /> <br></br>
-              <TextField InputProps={{ sx: { width: 500, height: 100} }} style={{"margin": "10px"}} multiline id={"actions" + job} label="Action Points" variant="outlined" onChange={handleChangeJobs} />
+              <FormControlLabel style={{"margin": "10px"}} control={<Checkbox id={"checkbox" + job} onChange={handleChangeJobs}/>} label="I currently work here"/> <br></br>
+              <TextField InputProps={{ sx: { width: 500, height: 300} }} style={{"margin": "10px"}} multiline id={"actions" + job} label="Action Points" variant="outlined" onChange={handleChangeJobs} />
             </div>
           )
         })}
@@ -189,7 +193,7 @@ function EnterInformation() {
         })}
         <Button style={{"margin": "10px"}} variant="outlined" color="success" onClick={() => handleSkills()}>+</Button> <br></br>
         </form>
-
+        
         <form style={{"margin": "100px", "padding": "5px"}}>
         <h1>Finally, the Summary!</h1>
         <p>Briefly tell us about your background and qualifications</p>

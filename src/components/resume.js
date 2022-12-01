@@ -13,7 +13,7 @@ function SecondComponent(props) {
                 <h3 class="tagline">{props.info[5]}</h3>
             </div>
             
-            <div class="contact-container container-block">
+            <div class="contact-container container-block" style={{"margin-top":"-2vh"}}>
                 <ul class="list-unstyled contact-list" style={{"margin-left": "-25px"}}>
                     <li class="email">{props.info[7]}</li>
                     <li class="phone">{props.info[6]}</li>
@@ -22,7 +22,7 @@ function SecondComponent(props) {
                     <li class="github">github.com/{props.info[9]}</li>
                 </ul>
             </div>
-            <div class="education-container container-block">
+            <div class="education-container container-block" style={{"margin-top":"-4vh"}}>
                 <h2 class="container-block-title">Education</h2>
                 <div class="item">
                     <h4 class="degree">{props.education[2]}</h4>
@@ -33,7 +33,7 @@ function SecondComponent(props) {
                 </div>
             </div>
             
-            <div class="languages-container container-block">
+            <div class="languages-container container-block" style={{"margin-top":"-4vh"}}>
                 <h2 class="container-block-title">Languages</h2>
                 <ul class="list-unstyled interests-list">
                     <li>English <span class="lang-desc">(Native)</span></li>
@@ -42,7 +42,7 @@ function SecondComponent(props) {
                 </ul>
             </div>
             
-            <div class="interests-container container-block">
+            <div class="interests-container container-block" style={{"margin-top":"-4vh"}}>
                 <h2 class="container-block-title">Interests</h2>
                 <ul class="list-unstyled interests-list">
                     <li>Climbing</li>
@@ -55,14 +55,14 @@ function SecondComponent(props) {
         
         <div class="main-wrapper" style={{"height": "100vh"}}>
             
-            <section class="section summary-section">
+            <section class="section summary-section" style={{"margin-top":"-4vh"}}>
                 <h2 class="section-title">Summary of Qualifications</h2>
                 <div class="summary">
                     <p>{props.summary}</p>
                 </div>
             </section>
             
-            <section class="section experiences-section">
+            <section class="section experiences-section" style={{"margin-top":"-4vh"}}>
                 <h2 class="section-title">Experiences</h2>
 
             {props.numJobs.map(function (job) {
@@ -83,7 +83,7 @@ function SecondComponent(props) {
                 
             </section>
             
-            <section class="skills-section section">
+            <section class="skills-section section" style={{"margin-top":"-4vh"}}>
                 <h2 class="section-title">Skills</h2>
                 <div class="skillset"> 
                 {props.numSkills.map(function (skill) {

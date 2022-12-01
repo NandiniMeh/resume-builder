@@ -271,6 +271,7 @@ p {
 .skillset .item {
     margin-bottom: 15px;
     overflow: hidden;
+    display: inline;
 }
 
 .skillset .level-title {
