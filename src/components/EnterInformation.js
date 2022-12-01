@@ -12,6 +12,11 @@ function EnterInformation() {
   const [jobs, setJobs] = React.useState([1]);
   const [skills, setSkills] = React.useState([1]);
   const [info, setInfo] = React.useState(['']);
+  const [education, setEducation] = React.useState(['']);
+  const [summary, setSummary] = React.useState();
+  const [listSkills, setListSkills] = React.useState(['']);
+  const [listJobs, setListJobs] = React.useState(['']);
+
 
   const handleJobs = () => {
     setJobs(jobs => [...jobs, jobs[jobs.length - 1] + 1]);
@@ -56,8 +61,72 @@ function EnterInformation() {
     }
   }
 
+    const handleChangeEducation = (event) => {
+    const temp = [...education]
+    if (event.target.id === 'university') {
+      temp[0] = event.target.value
+      setEducation(temp)
+    } else if (event.target.id === 'location') {
+      temp[1] = event.target.value
+      setEducation(temp)
+    } else if (event.target.id === 'degree') {
+      temp[2] = event.target.value
+      setEducation(temp)
+    } else if (event.target.id === 'field') {
+      temp[3] = event.target.value
+      setEducation(temp)
+    } else if (event.target.id === 'grad') {
+      temp[4] = event.target.value
+      setEducation(temp)
+    }
+  }
+
+    const handleChangeSummary = (event) => {
+      setSummary(event.target.value)
+    }
+
+    const handleChangeSkills = (event) => {
+      const temp = [...listSkills]
+      temp[event.target.id - 1] = event.target.value
+      setListSkills(temp)
+    }
+
+    const handleChangeJobs = (event) => {
+      const temp = [...listJobs]
+      jobs.map(function (job) {
+        if (event.target.id === ('title' + job)) {
+          job = job - 1;
+          temp[(job * 6)] = event.target.value
+        } else if (event.target.id === ('company' + job)) {
+          job = job - 1;
+          temp[(job * 6) + 1] = event.target.value
+        } else if (event.target.id === ('location' + job)) {
+          job = job - 1;
+          temp[(job * 6) + 2] = event.target.value
+        } else if (event.target.id === ('start' + job)) {
+          job = job - 1;
+          temp[(job * 6) + 3] = event.target.value
+        } else if (event.target.id === ('end' + job)) {
+          job = job - 1;
+          temp[(job * 6) + 4] = event.target.value
+        } else if (event.target.id === ('actions' + job)) {
+          job = job - 1;
+          temp[(job * 6) + 5] = event.target.value
+        }
+      })
+      setListJobs(temp);
+    }
+
   const renderResume = () => {
-    ReactDOM.render(<SecondComponent info = {info} />, document.getElementById("root"))
+    ReactDOM.render(<SecondComponent 
+                      info = {info} 
+                      education = {education} 
+                      summary = {summary}
+                      numSkills = {skills}
+                      listSkills = {listSkills}
+                      numJobs = {jobs}
+                      listJobs = {listJobs}
+                    />, document.getElementById("root"))
     window.scrollTo(0, 0)
   }
 
@@ -78,29 +147,28 @@ function EnterInformation() {
         </form>
         <form style={{"margin": "100px", "padding": "5px"}}>
         <h1>Let's work on the Education Section!</h1>
-        <TextField style={{"margin": "10px"}} multiline id="outlined-basic" label="University Name" variant="outlined"/>
-        <TextField style={{"margin": "10px"}} multiline id="outlined-basic" label="University Location" variant="outlined"/> <br></br>
-        <TextField style={{"margin": "10px"}} multiline id="outlined-basic" label="Degree" variant="outlined"/> <br></br>
-        <TextField style={{"margin": "10px"}} multiline id="outlined-basic" label="Field of Study" variant="outlined"/>
-        <TextField style={{"margin": "10px"}} multiline id="outlined-basic" label="Expected Graduation" variant="outlined"/>
+        <TextField style={{"margin": "10px"}} multiline id="university" label="University Name" variant="outlined" onChange={handleChangeEducation}/>
+        <TextField style={{"margin": "10px"}} multiline id="location" label="University Location" variant="outlined" onChange={handleChangeEducation}/> <br></br>
+        <TextField style={{"margin": "10px"}} multiline id="degree" label="Degree" variant="outlined" onChange={handleChangeEducation} /> <br></br>
+        <TextField style={{"margin": "10px"}} multiline id="field" label="Field of Study" variant="outlined" onChange={handleChangeEducation} />
+        <TextField style={{"margin": "10px"}} multiline id="grad" label="Expected Graduation" variant="outlined" onChange={handleChangeEducation} />
         </form>
         <form style={{"margin": "100px", "padding": "5px"}}>
         <h1>Now let's fill out your work history</h1>
         <p>Employers scan your resume to see if you're a match for the role. Include relevant work experience, and descriptions of your work.
-          Bullet points for action points are not required, but highly recommended!
         </p>
 
         {jobs.map(function (job) {
           return (
             <div>
               <p style={{"margin": "10px", "margin-top": "30px"}}>Work Experience #{job}</p>
-              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id="outlined-basic" label="Title" variant="outlined"/>
-              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id="outlined-basic" label="Organization" variant="outlined"/> <br></br>
-              <TextField style={{"margin": "10px"}} id="outlined-basic" label="Location" variant="outlined"/> <br></br>
-              <TextField style={{"margin": "10px"}} id="demo-simple-select-label" label="Start Date" variant="outlined"/>
-              <TextField style={{"margin": "10px"}} id="demo-simple-select-label" label="End Date" variant="outlined"/>
+              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id={"title" + job} label="Title" variant="outlined" onChange={handleChangeJobs}/>
+              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id={"company" + job} label="Organization" variant="outlined" onChange={handleChangeJobs} /> <br></br>
+              <TextField style={{"margin": "10px"}} id={"location" + job} label="Location" variant="outlined" onChange={handleChangeJobs} /> <br></br>
+              <TextField style={{"margin": "10px"}} id={"start" + job} label="Start Date" variant="outlined" onChange={handleChangeJobs} />
+              <TextField style={{"margin": "10px"}} id={"end" + job} label="End Date" variant="outlined" onChange={handleChangeJobs} />
               <FormControlLabel style={{"margin": "10px"}} control={<Checkbox />} label="I currently work here" /> <br></br>
-              <TextField InputProps={{ sx: { width: 500, height: 100} }} style={{"margin": "10px"}} multiline id="outlined-basic" label="Action Points" variant="outlined"/>
+              <TextField InputProps={{ sx: { width: 500, height: 100} }} style={{"margin": "10px"}} multiline id={"actions" + job} label="Action Points" variant="outlined" onChange={handleChangeJobs} />
             </div>
           )
         })}
@@ -115,7 +183,7 @@ function EnterInformation() {
           return (
             <div>
               <p style={{"margin": "10px", "margin-top": "30px"}}>Skill #{skill}</p>
-              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id="outlined-basic" label="Title" variant="outlined"/>
+              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id={skill} label="Title" variant="outlined" onChange={handleChangeSkills} />
             </div>
           )
         })}
@@ -132,6 +200,7 @@ function EnterInformation() {
            id="outlined-basic" 
            label="Write your summary here" 
            variant="outlined"
+           onChange={handleChangeSummary}
         />
         </form>
 
