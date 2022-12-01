@@ -14,7 +14,7 @@ https://user-images.githubusercontent.com/90271211/205162685-f3918451-6c3f-4369-
 
 ### For Users
 
-- Use this free technology to automatically create a resume by filling in some simple details!
+- Use this technology to automatically create a resume by filling in some simple details!
 
 #### Installing
 
