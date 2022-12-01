@@ -47,3 +47,7 @@ Your browser should now open and show the app. Otherwise open http://localhost:3
 
 - Implement download as pdf for resume
 - Work on UI and branding!
+
+
+![Made-With-React](https://img.shields.io/badge/Made_with-React-informational?style=for-the-badge&logo=react) ![Made-With-NodeJS](https://img.shields.io/badge/Made_with-NodeJS-informational?style=for-the-badge&logo=javascript) ![Made-With-Material_UI](https://img.shields.io/badge/Made_with-Material_UI-informational?style=for-the-badge&logo=material-ui)
+
