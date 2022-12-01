@@ -17,7 +17,6 @@ function SecondComponent(props) {
                 <ul class="list-unstyled contact-list" style={{"margin-left": "-25px"}}>
                     <li class="email">{props.info[7]}</li>
                     <li class="phone">{props.info[6]}</li>
-                    <li class="website">portfoliosite.com</li>
                     <li class="linkedin">linkedin.com/in/{props.info[8]}</li>
                     <li class="github">github.com/{props.info[9]}</li>
                 </ul>
@@ -36,18 +35,20 @@ function SecondComponent(props) {
             <div class="languages-container container-block" style={{"margin-top":"-4vh"}}>
                 <h2 class="container-block-title">Languages</h2>
                 <ul class="list-unstyled interests-list">
-                    <li>English <span class="lang-desc">(Native)</span></li>
-                    <li>French <span class="lang-desc">(Professional)</span></li>
-                    <li>Spanish <span class="lang-desc">(Professional)</span></li>
+                {props.numLanguages.map(function (language) {
+                   return (       
+                       <li>{props.listLanguages[language - 1]}</li>
+                     )})}  
                 </ul>
             </div>
             
             <div class="interests-container container-block" style={{"margin-top":"-4vh"}}>
                 <h2 class="container-block-title">Interests</h2>
                 <ul class="list-unstyled interests-list">
-                    <li>Climbing</li>
-                    <li>Snowboarding</li>
-                    <li>Cooking</li>
+                {props.numHobbies.map(function (hobby) {
+                   return (       
+                       <li>{props.listHobbies[hobby - 1]}</li>
+                     )})}  
                 </ul>
             </div>
             

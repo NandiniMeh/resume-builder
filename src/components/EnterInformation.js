@@ -11,11 +11,15 @@ function EnterInformation() {
 
   const [jobs, setJobs] = React.useState([1]);
   const [skills, setSkills] = React.useState([1]);
+  const [languages, setLanguages] = React.useState([1]);
+  const [hobbies, setHobbies] = React.useState([1]);
   const [info, setInfo] = React.useState(['']);
   const [education, setEducation] = React.useState(['']);
   const [summary, setSummary] = React.useState();
   const [listSkills, setListSkills] = React.useState(['']);
+  const [listLanguages, setListLanguages] = React.useState(['']);
   const [listJobs, setListJobs] = React.useState(['']);
+  const [listHobbies, setListHobbies] = React.useState(['']);
 
 
   const handleJobs = () => {
@@ -24,6 +28,14 @@ function EnterInformation() {
 
   const handleSkills = () => {
     setSkills(skills => [...skills, skills[skills.length - 1] + 1]);
+  }
+
+  const handleLanguages = () => {
+    setLanguages(languages => [...languages, languages[languages.length - 1] + 1]);
+  }
+
+  const handleHobbies = () => {
+    setHobbies(hobbies => [...hobbies, hobbies[hobbies.length - 1] + 1]);
   }
 
   const handleChangeName = (event) => {
@@ -91,6 +103,19 @@ function EnterInformation() {
       setListSkills(temp)
     }
 
+    const handleChangeLanguages = (event) => {
+      const temp = [...listLanguages]
+      temp[event.target.id - 1] = event.target.value
+      setListLanguages(temp)
+    }
+
+    const handleChangeHobbies = (event) => {
+      const temp = [...listHobbies]
+      temp[event.target.id - 1] = event.target.value
+      setListHobbies(temp)
+    }
+
+
     const handleChangeJobs = (event) => {
       const temp = [...listJobs]
       jobs.map(function (job) {
@@ -130,6 +155,10 @@ function EnterInformation() {
                       listSkills = {listSkills}
                       numJobs = {jobs}
                       listJobs = {listJobs}
+                      numLanguages = {languages}
+                      listLanguages = {listLanguages}
+                      numHobbies = {hobbies}
+                      listHobbies = {listHobbies}
                     />, document.getElementById("root"))
     window.scrollTo(0, 0)
   }
@@ -192,6 +221,34 @@ function EnterInformation() {
           )
         })}
         <Button style={{"margin": "10px"}} variant="outlined" color="success" onClick={() => handleSkills()}>+</Button> <br></br>
+        </form>
+
+        <form style={{"margin": "100px", "padding": "5px"}}>
+        <h1>What languages do you know that you would like to highlight</h1>
+        <p>Need some help? Include languages that you know, and also proficiency level in brackets!</p>
+        {languages.map(function (language) {
+          return (
+            <div>
+              <p style={{"margin": "10px", "margin-top": "30px"}}>Language #{language}</p>
+              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id={language} label="Title" variant="outlined" onChange={handleChangeLanguages} />
+            </div>
+          )
+        })}
+        <Button style={{"margin": "10px"}} variant="outlined" color="success" onClick={() => handleLanguages()}>+</Button> <br></br>
+        </form>
+
+        <form style={{"margin": "100px", "padding": "5px"}}>
+        <h1>What are your interests?</h1>
+        <p>Need some help? Interests such as blogging, pobcasting, writing, art, dance show a glipse of your personality to recruiters!</p>
+        {hobbies.map(function (hobby) {
+          return (
+            <div>
+              <p style={{"margin": "10px", "margin-top": "30px"}}>Interest #{hobby}</p>
+              <TextField InputProps={{ sx: { width: 500 } }} style={{"margin": "10px"}} multiline id={hobby} label="Title" variant="outlined" onChange={handleChangeHobbies} />
+            </div>
+          )
+        })}
+        <Button style={{"margin": "10px"}} variant="outlined" color="success" onClick={() => handleHobbies()}>+</Button> <br></br>
         </form>
         
         <form style={{"margin": "100px", "padding": "5px"}}>
