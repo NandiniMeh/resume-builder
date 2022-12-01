@@ -7,7 +7,7 @@
 1. Clone the repository
 
    ```
-   git clone 
+   git clone https://github.com/NandiniMeh/resume-builder
    ```
 2. Install dependencies, this can take a minute
 
