@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/90271211/205162685-f3918451-6c3f-4369-
 2. Install dependencies
 
    ```
-   cd react-builder
+   cd resume-builder
 
    npm install
    ```
