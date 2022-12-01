@@ -2,7 +2,7 @@
 
 - Use this free technology to automatically create a resume by filling in some simple details!
 
-## Installing
+#### Installing
 
 1. Clone the repository
 
