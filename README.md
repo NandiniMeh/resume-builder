@@ -1,12 +1,12 @@
 ### Walkthrough!
 
-#### - Main Screen - Enter Information
+- #### Main Screen - Enter Information
 
 https://user-images.githubusercontent.com/90271211/205161247-1741584f-89ed-4948-93f7-f07330aeba76.mov
 
 
 
-#### - On Clicking Resumake! using user entered information
+- #### On Clicking Resumake! using user entered information
 
 https://user-images.githubusercontent.com/90271211/205162685-f3918451-6c3f-4369-b7b2-719c6976a8bd.mov
 
