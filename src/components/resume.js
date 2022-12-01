@@ -4,7 +4,7 @@ import "./orbit-1.css"
 // Second simple component with heading tag
 function SecondComponent(props) {
   return (
-        <div class="wrapper mt-lg-5">
+        <div class="wrapper mt-lg-5" style={{"outline": "2px solid black"}}>
         <div class="sidebar-wrapper">
             <div class="profile-container">
                 <h1 class="name">{props.info[0]} {props.info[1]}</h1>
